@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "#/"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:flint"
+        },
+        "/": {
+            "item": "bettermaterials:tool_handle"
+        }
+    },
+    "result": {
+        "item": "bettermaterials:flint_axe",
+        "count": 1
+    }
+}

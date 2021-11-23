@@ -1,0 +1,20 @@
+{
+  "itemGroup.better_materials": "Better Materials",
+  "tooltip.bettermaterials.broken": "\u00A7cBroken",
+
+  "block.bettermaterials.flint_block": "Flint Block",
+
+  "item.bettermaterials.tool_handle": "Tool Handle",
+
+  "item.bettermaterials.bone_sword": "Bone Sword",
+  "item.bettermaterials.bone_shovel": "Bone Shovel",
+  "item.bettermaterials.bone_pickaxe": "Bone Pickaxe",
+  "item.bettermaterials.bone_axe": "Bone Axe",
+  "item.bettermaterials.bone_hoe": "Bone Hoe",
+
+  "item.bettermaterials.flint_sword": "Flint Sword",
+  "item.bettermaterials.flint_shovel": "Flint Shovel",
+  "item.bettermaterials.flint_pickaxe": "Flint Pickaxe",
+  "item.bettermaterials.flint_axe": "Flint Axe",
+  "item.bettermaterials.flint_hoe": "Flint Hoe"
+}
