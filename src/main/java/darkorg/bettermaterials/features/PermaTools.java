@@ -33,6 +33,7 @@ public class PermaTools {
         }
     }
 
+    @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public void itemTooltip (ItemTooltipEvent event) {
         List<ITextComponent> tooltip = event.getToolTip();
