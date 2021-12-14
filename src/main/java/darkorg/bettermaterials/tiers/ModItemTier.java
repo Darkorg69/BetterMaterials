@@ -10,7 +10,8 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
     BONE(0, 59, 2.0F, 0.0F, 15, () -> {return Ingredient.fromItems(Items.BONE);}),
-    FLINT(1, 131, 4.0F, 1.0F, 5, () -> {return Ingredient.fromItems(Items.FLINT);});
+    FLINT(1, 131, 4.0F, 1.0F, 5, () -> {return Ingredient.fromItems(Items.FLINT);}),
+    EMERALD(2, 521, 8.0F, 3.0F, 10, () -> {return Ingredient.fromItems(Items.EMERALD);});
 
     private final int harvestLevel;
     private final int maxUses;

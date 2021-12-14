@@ -26,5 +26,11 @@ public class ModTools {
     public static final RegistryObject<Item> FLINT_AXE = TOOLS.register("flint_axe", ()-> new AxeItem(ModItemTier.FLINT, 7.0F, -3.2F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
     public static final RegistryObject<Item> FLINT_HOE = TOOLS.register("flint_hoe", ()-> new HoeItem(ModItemTier.FLINT, -1, -2.0F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
 
+    public static final RegistryObject<Item> EMERALD_SWORD = TOOLS.register("emerald_sword", ()-> new SwordItem(ModItemTier.EMERALD, 3, -2.4F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
+    public static final RegistryObject<Item> EMERALD_SHOVEL = TOOLS.register("emerald_shovel", ()-> new ShovelItem(ModItemTier.EMERALD, 1.5F, -3.0F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
+    public static final RegistryObject<Item> EMERALD_PICKAXE = TOOLS.register("emerald_pickaxe", ()-> new PickaxeItem(ModItemTier.EMERALD, 1, -2.8F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
+    public static final RegistryObject<Item> EMERALD_AXE = TOOLS.register("emerald_axe", ()-> new AxeItem(ModItemTier.EMERALD, 5.0F, -3.0F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
+    public static final RegistryObject<Item> EMERALD_HOE = TOOLS.register("emerald_hoe", ()-> new HoeItem(ModItemTier.EMERALD, -3, 0.0F, (new Item.Properties()).group(ModTab.BETTER_MATERIALS)));
+
     public static void init(IEventBus bus) {TOOLS.register(bus);}
 }

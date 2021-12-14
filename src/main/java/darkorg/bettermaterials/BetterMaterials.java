@@ -1,7 +1,5 @@
 package darkorg.bettermaterials;
 
-import darkorg.bettermaterials.setup.Config;
-import darkorg.bettermaterials.setup.Events;
 import darkorg.bettermaterials.setup.Registry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,8 +15,6 @@ public class BetterMaterials {
 
     public BetterMaterials() {
         Registry.init(bus);
-        Config.init();
-        Events.init();
         bus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
     }
