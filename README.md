@@ -6,7 +6,7 @@
 # Mod Features
 
 ## Items
-* **Copper Shears**, the same as regular shears but with less durability.
+* **Copper Shears**, the same as regular **Shears** but with less durability.
 
 ## Blocks
 * **Block of Flint**, so you can store your **Flint** more conviniently, can be used as decoration.
