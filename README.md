@@ -3,8 +3,10 @@
 # Better Materials
 **A minecraft mod, expanding upon the vanilla game, making materials more useful and realistic.**
 
-# Mod Features
+# Notice
+This mod is for **Forge**!
 
+# Mod Features
 ## Items
 * **Copper Shears**, the same as regular **Shears** but with less durability.
 
