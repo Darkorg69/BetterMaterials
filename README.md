@@ -4,7 +4,7 @@
 **A minecraft mod, expanding upon the vanilla game, making materials more useful and realistic.**
 
 # Notice
-This mod is for **Forge**!
+* This mod is for **Forge**!
 
 # Mod Features
 ## Items
