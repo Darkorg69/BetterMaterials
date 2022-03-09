@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has": {
+    "has_emerald": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:leather_horse_armor"
+              "minecraft:emerald"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has",
+      "has_emerald",
       "has_the_recipe"
     ]
   ]

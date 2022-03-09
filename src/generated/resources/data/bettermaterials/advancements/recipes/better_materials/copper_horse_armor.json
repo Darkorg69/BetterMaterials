@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has": {
+    "has_copper_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:leather_horse_armor"
+              "minecraft:copper_ingot"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has",
+      "has_copper_ingot",
       "has_the_recipe"
     ]
   ]

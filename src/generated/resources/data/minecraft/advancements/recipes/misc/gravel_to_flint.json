@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bettermaterials:copper_pickaxe"
+      "minecraft:gravel_to_flint"
     ]
   },
   "criteria": {
-    "has_copper_ingot": {
+    "has_gravel": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:copper_ingot"
+              "minecraft:gravel"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bettermaterials:copper_pickaxe"
+        "recipe": "minecraft:gravel_to_flint"
       }
     }
   },
   "requirements": [
     [
-      "has_copper_ingot",
+      "has_gravel",
       "has_the_recipe"
     ]
   ]

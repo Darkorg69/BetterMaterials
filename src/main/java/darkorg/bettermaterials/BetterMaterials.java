@@ -1,7 +1,7 @@
 package darkorg.bettermaterials;
 
 import darkorg.bettermaterials.items.ModItems;
-import darkorg.bettermaterials.setup.ModRegistry;
+import darkorg.bettermaterials.setup.ModRegistryHelper;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,7 +17,7 @@ public class BetterMaterials {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
     public BetterMaterials() {
-        ModRegistry.init(bus);
+        ModRegistryHelper.init(bus);
         bus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
     }

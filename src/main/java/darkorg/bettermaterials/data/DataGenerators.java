@@ -7,6 +7,7 @@ import darkorg.bettermaterials.data.common.ModBlockTagsProvider;
 import darkorg.bettermaterials.data.common.ModItemTagsProvider;
 import darkorg.bettermaterials.data.common.ModLootTableProvider;
 import darkorg.bettermaterials.data.common.ModRecipeProvider;
+import darkorg.bettermaterials.setup.ModReference;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +18,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherDataEvent(GatherDataEvent event) {
+        ModReference.init();
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 

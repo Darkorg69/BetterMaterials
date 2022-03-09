@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has": {
+    "has_string": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:clay"
+              "minecraft:string"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has",
+      "has_string",
       "has_the_recipe"
     ]
   ]

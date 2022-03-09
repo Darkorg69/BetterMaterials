@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/Darkorg69/BetterMaterials/issues" #optional
 
 [[mods]] #mandatory
 modId="bettermaterials" #mandatory
-version="1.0.0-1.18.2" #mandatory
+version="1.1.0-1.18.2" #mandatory
 displayName="Better Materials" #mandatory
 #updateJSONURL="" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bettermaterials" #optional

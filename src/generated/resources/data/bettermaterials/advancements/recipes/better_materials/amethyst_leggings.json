@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has": {
+    "has_amethyst_shard": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has",
+      "has_amethyst_shard",
       "has_the_recipe"
     ]
   ]

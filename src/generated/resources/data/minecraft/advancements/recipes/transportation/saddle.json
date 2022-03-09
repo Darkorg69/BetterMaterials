@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bettermaterials:copper_pickaxe"
+      "minecraft:saddle"
     ]
   },
   "criteria": {
-    "has_copper_ingot": {
+    "has_": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:copper_ingot"
+              "minecraft:saddle"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bettermaterials:copper_pickaxe"
+        "recipe": "minecraft:saddle"
       }
     }
   },
   "requirements": [
     [
-      "has_copper_ingot",
+      "has_",
       "has_the_recipe"
     ]
   ]

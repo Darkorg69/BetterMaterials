@@ -1,18 +1,25 @@
 package darkorg.bettermaterials.data.common;
 
 import darkorg.bettermaterials.blocks.ModBlocks;
-import darkorg.bettermaterials.items.ModArmor;
 import darkorg.bettermaterials.items.ModHorseArmor;
 import darkorg.bettermaterials.items.ModTools;
+import darkorg.bettermaterials.setup.ModReference;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.Consumer;
+
+import static darkorg.bettermaterials.data.common.ModRecipeProvider.ModRecipeBuilder.*;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public ModRecipeProvider(DataGenerator pGenerator) {
@@ -21,59 +28,70 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(ModBlocks.FLINT_BLOCK.get()).define('#', Items.FLINT).pattern("###").pattern("###").pattern("###").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapelessRecipeBuilder.shapeless(Items.FLINT, 9).requires(ModBlocks.FLINT_BLOCK.get()).unlockedBy("has", has(ModBlocks.FLINT_BLOCK.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(ModBlocks.CHARCOAL_BLOCK.get()).define('#', Items.CHARCOAL).pattern("###").pattern("###").pattern("###").unlockedBy("has", has(Items.CHARCOAL)).save(consumer);
-        ShapelessRecipeBuilder.shapeless(Items.CHARCOAL, 9).requires(ModBlocks.CHARCOAL_BLOCK.get()).unlockedBy("has", has(ModBlocks.CHARCOAL_BLOCK.get())).save(consumer);
+        //Blocks
+        addNineStorageBlockRecipes(ModBlocks.FLINT_BLOCK.get(), Items.FLINT, consumer);
+        addNineStorageBlockRecipes(ModBlocks.CHARCOAL_BLOCK.get(), Items.CHARCOAL, consumer);
         //Armor
-        ShapedRecipeBuilder.shaped(ModArmor.COPPER_HELMET.get()).define('#', Items.COPPER_INGOT).pattern("###").pattern("# #").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.COPPER_CHESTPLATE.get()).define('#', Items.COPPER_INGOT).pattern("# #").pattern("###").pattern("###").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.COPPER_LEGGINGS.get()).define('#', Items.COPPER_INGOT).pattern("###").pattern("# #").pattern("# #").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.COPPER_BOOTS.get()).define('#', Items.COPPER_INGOT).pattern("# #").pattern("# #").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.EMERALD_HELMET.get()).define('#', Items.EMERALD).pattern("###").pattern("# #").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.EMERALD_CHESTPLATE.get()).define('#', Items.EMERALD).pattern("# #").pattern("###").pattern("###").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.EMERALD_LEGGINGS.get()).define('#', Items.EMERALD).pattern("###").pattern("# #").pattern("# #").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.EMERALD_BOOTS.get()).define('#', Items.EMERALD).pattern("# #").pattern("# #").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.AMETHYST_HELMET.get()).define('#', Items.AMETHYST_SHARD).pattern("###").pattern("# #").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.AMETHYST_CHESTPLATE.get()).define('#', Items.AMETHYST_SHARD).pattern("# #").pattern("###").pattern("###").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.AMETHYST_LEGGINGS.get()).define('#', Items.AMETHYST_SHARD).pattern("###").pattern("# #").pattern("# #").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModArmor.AMETHYST_BOOTS.get()).define('#', Items.AMETHYST_SHARD).pattern("# #").pattern("# #").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
+        addArmorRecipes(ModReference.COPPER_ARMOR, Items.COPPER_INGOT, consumer);
+        addArmorRecipes(ModReference.EMERALD_ARMOR, Items.EMERALD, consumer);
+        addArmorRecipes(ModReference.AMETHYST_ARMOR, Items.AMETHYST_SHARD, consumer);
+        //Misc
+        addShearsRecipe(ModTools.COPPER_SHEARS.get(), Items.COPPER_INGOT, consumer);
+        addHorseArmourRecipe(ModHorseArmor.COPPER_HORSE_ARMOR.get(), Items.COPPER_INGOT, consumer);
+        addHorseArmourRecipe(ModHorseArmor.EMERALD_HORSE_ARMOR.get(), Items.EMERALD, consumer);
+        addHorseArmourRecipe(ModHorseArmor.AMETHYST_HORSE_ARMOR.get(), Items.AMETHYST_SHARD, consumer);
         //Tools
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_SHEARS.get()).define('#', Items.COPPER_INGOT).pattern(" #").pattern("# ").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.BONE_SWORD.get()).define('#', Items.BONE).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has", has(Items.BONE)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.BONE_PICKAXE.get()).define('#', Items.BONE).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.BONE)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.BONE_SHOVEL.get()).define('#', Items.BONE).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has", has(Items.BONE)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.BONE_AXE.get()).define('#', Items.BONE).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.BONE)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.BONE_HOE.get()).define('#', Items.BONE).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has", has(Items.BONE)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.FLINT_SWORD.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.FLINT_PICKAXE.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.FLINT_SHOVEL.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.FLINT_AXE.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.FLINT_HOE.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has", has(Items.FLINT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_SWORD.get()).define('#', Items.COPPER_INGOT).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_PICKAXE.get()).define('#', Items.COPPER_INGOT).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_SHOVEL.get()).define('#', Items.COPPER_INGOT).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_AXE.get()).define('#', Items.COPPER_INGOT).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.COPPER_HOE.get()).define('#', Items.COPPER_INGOT).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has", has(Items.COPPER_INGOT)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.EMERALD_SWORD.get()).define('#', Items.EMERALD).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.EMERALD_PICKAXE.get()).define('#', Items.EMERALD).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.EMERALD_SHOVEL.get()).define('#', Items.EMERALD).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.EMERALD_AXE.get()).define('#', Items.EMERALD).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.EMERALD_HOE.get()).define('#', Items.EMERALD).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has", has(Items.EMERALD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.AMETHYST_SWORD.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.AMETHYST_PICKAXE.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.AMETHYST_SHOVEL.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.AMETHYST_AXE.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModTools.AMETHYST_HOE.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has", has(Items.AMETHYST_SHARD)).save(consumer);
-        //Horse Armor
-        ShapedRecipeBuilder.shaped(ModHorseArmor.COPPER_HORSE_ARMOR.get()).define('#', Items.COPPER_INGOT).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModHorseArmor.EMERALD_HORSE_ARMOR.get()).define('#', Items.EMERALD).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        ShapedRecipeBuilder.shaped(ModHorseArmor.AMETHYST_HORSE_ARMOR.get()).define('#', Items.AMETHYST_SHARD).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        ShapedRecipeBuilder.shaped(Items.IRON_HORSE_ARMOR).define('#', Items.IRON_INGOT).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        ShapedRecipeBuilder.shaped(Items.GOLDEN_HORSE_ARMOR).define('#', Items.GOLD_INGOT).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        ShapedRecipeBuilder.shaped(Items.DIAMOND_HORSE_ARMOR).define('#', Items.DIAMOND).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has", has(Items.LEATHER_HORSE_ARMOR)).save(consumer);
-        //QOL Recipes
-        ShapelessRecipeBuilder.shapeless(Items.CLAY_BALL, 4).requires(Blocks.CLAY).unlockedBy("has", has(Blocks.CLAY)).save(consumer);
-        ShapelessRecipeBuilder.shapeless(Items.STRING, 4).requires(ItemTags.WOOL).unlockedBy("has", has(Blocks.CLAY)).save(consumer);
+        addToolRecipes(ModReference.BONE_TOOLS, Items.BONE, consumer);
+        addToolRecipes(ModReference.FLINT_TOOLS, Items.FLINT, consumer);
+        addToolRecipes(ModReference.COPPER_TOOLS, Items.COPPER_INGOT, consumer);
+        addToolRecipes(ModReference.EMERALD_TOOLS, Items.EMERALD, consumer);
+        addToolRecipes(ModReference.AMETHYST_TOOLS, Items.AMETHYST_SHARD, consumer);
+        //Vanilla
+        addShapelessRecipe(Items.CLAY_BALL, 4, Blocks.CLAY, consumer);
+        addShapelessTagRecipe(Items.STRING, 4, ItemTags.WOOL, consumer);
+        addHorseArmourRecipe(Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, consumer);
+        addHorseArmourRecipe(Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, consumer);
+        addHorseArmourRecipe(Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, consumer);
+        ShapedRecipeBuilder.shaped(Items.FLINT).define('#', Items.GRAVEL).pattern("##").pattern("# ").group("flint").unlockedBy("has_gravel", has(Items.GRAVEL)).save(consumer, "gravel_to_flint");
+        ShapedRecipeBuilder.shaped(Items.SADDLE).define('I', Items.IRON_INGOT).define('L', Items.LEATHER).define('S', Items.STRING).define('W', ItemTags.WOOL).pattern("LLL").pattern("SWS").pattern("I I").unlockedBy("has_", has(Items.SADDLE)).save(consumer);
+    }
+
+    @SuppressWarnings("SameParameterValue")
+    static class ModRecipeBuilder {
+        static void addToolRecipes(List<RegistryObject<Item>> toolList, ItemLike material, Consumer<FinishedRecipe> consumer) {
+            ShapedRecipeBuilder.shaped(toolList.get(0).get()).define('#', material).define('/', Items.STICK).pattern("#").pattern("#").pattern("/").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(toolList.get(1).get()).define('#', material).define('/', Items.STICK).pattern("###").pattern(" / ").pattern(" / ").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(toolList.get(2).get()).define('#', material).define('/', Items.STICK).pattern("#").pattern("/").pattern("/").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(toolList.get(3).get()).define('#', material).define('/', Items.STICK).pattern("##").pattern("#/").pattern(" /").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(toolList.get(4).get()).define('#', material).define('/', Items.STICK).pattern("##").pattern(" /").pattern(" /").unlockedBy("has_" + material, has(material)).save(consumer);
+        }
+
+        static void addArmorRecipes(List<RegistryObject<Item>> armorList, ItemLike material, Consumer<FinishedRecipe> consumer) {
+            ShapedRecipeBuilder.shaped(armorList.get(0).get()).define('#', material).pattern("###").pattern("# #").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(armorList.get(1).get()).define('#', material).pattern("# #").pattern("###").pattern("###").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(armorList.get(2).get()).define('#', material).pattern("###").pattern("# #").pattern("# #").unlockedBy("has_" + material, has(material)).save(consumer);
+            ShapedRecipeBuilder.shaped(armorList.get(3).get()).define('#', material).pattern("# #").pattern("# #").unlockedBy("has_" + material, has(material)).save(consumer);
+        }
+
+        static void addShearsRecipe(ItemLike result, ItemLike material, Consumer<FinishedRecipe> consumer) {
+            ShapedRecipeBuilder.shaped(result).define('#', material).pattern(" #").pattern("# ").unlockedBy("has_" + material, has(material)).save(consumer);
+        }
+
+        static void addHorseArmourRecipe(ItemLike result, ItemLike material, Consumer<FinishedRecipe> consumer) {
+            ShapedRecipeBuilder.shaped(result).define('#', material).define('/', Items.LEATHER_HORSE_ARMOR).pattern("# #").pattern("###").pattern("#/#").unlockedBy("has_" + material, has(material)).save(consumer);
+        }
+
+        static void addNineStorageBlockRecipes(ItemLike storageBlock, ItemLike material, Consumer<FinishedRecipe> consumer) {
+            ShapelessRecipeBuilder.shapeless(material, 9).requires(storageBlock).unlockedBy("has_" + storageBlock, has(storageBlock)).save(consumer);
+            ShapedRecipeBuilder.shaped(storageBlock).define('#', material).pattern("###").pattern("###").pattern("###").unlockedBy("has_" + material, has(material)).save(consumer);
+        }
+
+        static void addShapelessRecipe(ItemLike result, int count, ItemLike ingredient, Consumer<FinishedRecipe> consumer) {
+            ShapelessRecipeBuilder.shapeless(result, count).requires(ingredient).unlockedBy("has_" + result, has(result)).save(consumer);
+        }
+
+        static void addShapelessTagRecipe(ItemLike result, int count, TagKey<Item> ingredientTag, Consumer<FinishedRecipe> consumer) {
+            ShapelessRecipeBuilder.shapeless(result, count).requires(ingredientTag).unlockedBy("has_" + result, has(result)).save(consumer);
+        }
     }
 }

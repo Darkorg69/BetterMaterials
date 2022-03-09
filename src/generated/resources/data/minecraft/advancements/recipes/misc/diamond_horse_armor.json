@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has": {
+    "has_diamond": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:leather_horse_armor"
+              "minecraft:diamond"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has",
+      "has_diamond",
       "has_the_recipe"
     ]
   ]
