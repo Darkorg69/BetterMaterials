@@ -1,17 +1,18 @@
 modLoader="javafml" #mandatory
 loaderVersion="[36,)" #mandatory
 license="GNU LGPLv3"
-issueTrackerURL="https://github.com/Darkorg69/bettermaterials" #optional
+issueTrackerURL="https://github.com/Darkorg69/BetterMaterials/issues" #optional
+
 [[mods]] #mandatory
 modId="bettermaterials" #mandatory
-version="1.16.5-1.1.0" #mandatory
+version="1.2.0-1.16.5" #mandatory
 displayName="Better Materials" #mandatory
 #updateJSONURL="" #optional
-displayURL="https://github.com/Darkorg69/bettermaterials" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/bettermaterials" #optional
 logoFile="bettermaterials.png" #optional
-credits="Thanks for this mod goes to Java." #optional
+credits="Thanks for this mod goes to Java and the Forge team." #optional
 authors="Darkorg" #optional
-description='''A minecraft mod, expanding upon vanilla resources, making them more useful and realistic.'''
+description='''A minecraft mod, expanding upon the vanilla game, making materials more useful and realistic.'''
 
 [[dependencies.bettermaterials]] #optional
     modId="forge" #mandatory

@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "bettermaterials:items/bone/bone_pickaxe"
-  }
-}

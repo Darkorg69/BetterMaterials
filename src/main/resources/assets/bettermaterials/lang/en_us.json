@@ -1,20 +1,31 @@
 {
   "itemGroup.better_materials": "Better Materials",
-  "block.bettermaterials.flint_block": "Flint Block",
-  "item.bettermaterials.tool_handle": "Tool Handle",
+
+  "block.bettermaterials.flint_block": "Block of Flint",
+  "block.bettermaterials.charcoal_block": "Block of Charcoal",
+
   "item.bettermaterials.bone_sword": "Bone Sword",
   "item.bettermaterials.bone_shovel": "Bone Shovel",
   "item.bettermaterials.bone_pickaxe": "Bone Pickaxe",
   "item.bettermaterials.bone_axe": "Bone Axe",
   "item.bettermaterials.bone_hoe": "Bone Hoe",
+
   "item.bettermaterials.flint_sword": "Flint Sword",
   "item.bettermaterials.flint_shovel": "Flint Shovel",
   "item.bettermaterials.flint_pickaxe": "Flint Pickaxe",
   "item.bettermaterials.flint_axe": "Flint Axe",
   "item.bettermaterials.flint_hoe": "Flint Hoe",
+
   "item.bettermaterials.emerald_sword": "Emerald Sword",
   "item.bettermaterials.emerald_shovel": "Emerald Shovel",
   "item.bettermaterials.emerald_pickaxe": "Emerald Pickaxe",
   "item.bettermaterials.emerald_axe": "Emerald Axe",
-  "item.bettermaterials.emerald_hoe": "Emerald Hoe"
+  "item.bettermaterials.emerald_hoe": "Emerald Hoe",
+
+  "item.bettermaterials.emerald_helmet": "Emerald Helmet",
+  "item.bettermaterials.emerald_chestplate": "Emerald Chestplate",
+  "item.bettermaterials.emerald_leggings": "Emerald Leggings",
+  "item.bettermaterials.emerald_boots": "Emerald Boots",
+
+  "item.bettermaterials.emerald_horse_armor": "Emerald Horse Armor"
 }
