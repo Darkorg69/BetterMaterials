@@ -5,6 +5,7 @@
 
 # Notice
 * This mod is for **Forge**!
+* 1.16.5 version doesn't add copper and amethyst gear, because copper and amethyst aren't present in that version of the game.
 
 # Mod Features
 ## Items
